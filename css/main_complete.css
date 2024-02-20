@@ -1,0 +1,255 @@
+/* Universal Selector */
+
+/* *{
+    border: 2px solid red;
+} */
+
+body {
+    background-color: darkgray;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    background-color: dodgerblue;
+    padding: 2vw;
+}
+
+.navbar > a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* 
+Box Model is made up of 4 parts: Content, Padding, Border, Margin
+    Content - The content of the box, where text and images appear
+    Padding - Clears an area around the content. The padding is transparent
+    Border - A border that goes around the padding and content
+    Margin - Clears an area outside the border. The margin is transparent
+*/
+.box-model{
+    border: 4px solid green;
+    padding: 25px;
+    margin: 20px;
+}
+
+/* 
+Total Size:
+    Height: 100px (content) + 2*25px (padding) + 2*4px (border) + 2*20px (margin) = 198px
+    Width: 300px (content) + 2*25px (padding) + 2*4px (border) + 2*20px (margin) = 398px
+*/
+
+
+
+/* Simple Selector */
+/* element: grabs all of the elements base on the element name e.g h1,h2,p,div{} */
+h3 {
+    text-transform: uppercase;
+}
+
+section {
+    width: 90vw;
+    margin: auto;
+}
+
+/* class: grabs all of the elements with the class name. begins with a dot (.) e.g. .className */
+.selectors{
+    border: 2px solid red;
+    margin: 10px 0;
+}
+
+/* id: grabs the element with the id. begins with an octothorpe (#) e.g. #idName */
+#simple{
+    text-align: center;
+}
+
+
+/* Combinator Selector - based on the relationship */
+/* Descendant Selector (space) - Used to match all elements that are direct descendants of a specified element */
+#combo h6 {
+    text-align: right;
+}
+
+/* Child Selector (>) - Used to match all elements that are direct children of a specified element. Descendant and child selectors are often used interchangably because they are very similar. The difference here though is specificity */
+#combo > h6 {
+    color: blue;
+}
+
+/* Adjacent Sibling Selector (+) - Used to select an element that is directly after another specific element. HAS to be immediately following! */
+aside + h4 {
+    background-color: green;
+}
+
+
+/* General Sibling Selector (~) - Used to select an element that is after another specific element and is a sibling. HAS to be after! */
+aside ~ h3 {
+    background-color: orange;
+}
+
+
+/* Pseudo-class Selector - Select elements based on a certain state */
+/* selector:pseudo-class{} */
+
+/* unvisited link */
+.selectors a:link{
+    color: red;
+}
+
+/* visited link */
+.selectors a:visited{
+    color: green;
+}
+
+/* mouse over link */
+.selectors a:hover {
+    color: white;
+    background-color: black;
+    font-size: 24px;
+}
+
+/* selected link */
+.selectors a:active {
+    color: blue;
+    background-color: red;
+}
+
+
+.child-example p:nth-child(3) {
+    background-color: blueviolet;
+}
+
+
+/* Pseudo Elements - used to style specified parts of an element */
+/* selector::psuedo-element{} */
+#first-line::first-letter {
+    color: blue;
+    font-size: 4em;
+}
+
+#first-line::first-line {
+    color: red;
+    font-variant: small-caps;
+}
+
+#after-example::after {
+    content: url('https://picsum.photos/100')
+}
+
+/* Attribute Selectors - style HTML elements that have specific attributes or attribute values */
+/* selector[attribute]{} */
+
+/* CSS [attribute] Selector */
+/* matches any element that has that attribute */
+div[title] {
+    border: 2px solid black;
+    background-color: crimson;
+}
+
+/* CSS [attribute="value"] Selector */
+/* matches the value exactly */
+div[title="border"] {
+    text-align: center;
+}
+
+
+/* CSS [attribute~="value"] Selector */
+/* matches the value containing a specified word */
+div[title~="border"] {
+    font-variant: small-caps;
+}
+
+
+/* CSS [attribute|="value"] Selector */
+/* matches a value or a value followed by a hyphen */
+div[title|="border"] {
+    color: white;
+}
+
+
+/* CSS [attribute^="value"] Selector */
+/* matches if the value starts with the specified value */
+div[title^="border"] {
+    background-color: blue;
+}
+
+
+/* CSS [attribute$="value"] Selector */
+/* matches if the value ends with the specified value */
+div[title$="border"] {
+    background-color: pink;
+}
+
+
+/* CSS [attribute*="value"] Selector */
+/* matches contains the specified value */
+div[title*="s"]{
+    text-align: right;
+}
+
+
+/* a[href*="www"] {
+    font-size: 48px;
+} */
+
+/* CSS DISPLAYS */
+.block-level {
+    border: 5px solid black;
+}
+
+.block-level > h3 {
+    border: 3px solid magenta;
+    /* override the default display: block */
+    display: inline
+}
+
+#displays a {
+    border: 3px solid firebrick;
+}
+
+/* 
+    Display: None
+    Used to hide an element. Commonly used with JavaScript 
+*/
+
+#middle {
+    border: 3px solid darkred;
+    display: none;
+}
+
+
+
+/* CSS POSITIONS */
+
+/* position: relative - positioned relative to its normal position. Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position */
+.position-border {
+    border: 5px solid blue;
+    height: 150vh;
+    width: 150vw;
+    position: relative;
+    top: 10px;
+    left: 25px;
+}
+
+/* position: fixed - positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled */
+/* #img-1 {
+    position: fixed;
+    top: 300px;
+    left: 50vw;
+} */
+
+/* position: absolute -  positioned relative to the nearest positioned ancestor */
+
+/* #img-2 {
+    position: absolute;
+    top: 150px;
+    left: 100px;
+} */
+
+
+/* position: sticky -  positioned based on the user's scroll position - toggles between relative and fixed, depending on the scroll position */
+#img-3 {
+    position: sticky;
+    top: 0px;
+    left: 100px
+}
