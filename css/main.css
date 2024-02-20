@@ -100,29 +100,71 @@ aside ~ h3 {
 /* Pseudo-class Selector - Select elements based on a certain state */
 /* selector:pseudo-class{} */
 
+
+.selectors > a {
+    border: 2px solid darkblue;
+}
+
+
 /* unvisited link */
+.selectors > a:link {
+    color: red
+}
 
 /* visited link */
 
+
+.selectors > a {
+    color: green;
+}
+
+
 /* mouse over link */
 
+.selectors > a:hover {
+    color: white;
+    background-color: black;
+    font-size: 24px;
+
+}
+
+
 /* selected link */
+.selectors > a:active {
+    background-color: aqua;
+}
 
-
+.child-example > p:nth-child(3) {
+    color: blue;
+    background-color: orange;
+}
 
 
 /* Pseudo Elements - used to style specified parts of an element */
 /* selector::psuedo-element{} */
 
 
+#first-line::first-line {
+    color: rgb(161, 145, 177);
+}
 
+#first-line::first-letter {
+    color: brown;
+}
+
+#before-example::before {
+    content: url('https://picsum.photos/seed/picsum/200/300');
+}
 
 /* Attribute Selectors - style HTML elements that have specific attributes or attribute values */
 /* selector[attribute]{} */
 
 /* CSS [attribute] Selector */
 
-
+div[title|="border"] {
+    color: rgb(26, 90, 146);
+    text-align: center;
+}
 /* CSS [attribute="value"] Selector */
 /* matches the value exactly */
 
